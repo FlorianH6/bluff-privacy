@@ -5,22 +5,119 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bluff – Datenschutz & Support</title>
   <style>
-    :root{--bg:#0f172a;--card:#111827;--txt:#e5e7eb;--acc:#22c55e;}
-    body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;
-         display:flex;justify-content:center;}
-    main{max-width:920px;width:100%;padding:48px 18px;}
-    h1{color:white;margin:0 0 6px;font-size:40px;letter-spacing:.2px}
-    .sub{margin:0 0 28px;color:#cbd5e1}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px;margin:16px 0}
-    h2{color:var(--acc);margin:0 0 10px}
-    a{color:var(--acc)}
-    ul{margin:8px 0 0 20px}
-    footer{margin-top:26px;color:#94a3b8;font-size:13px}
+    :root{
+      --bg1:#050816;
+      --bg2:#0b1b3a;
+      --card:rgba(15, 23, 42, .72);
+      --stroke:rgba(34, 197, 94, .28);
+      --txt:#e5e7eb;
+      --muted:#9ca3af;
+  
+      --neon:#22c55e;
+      --neon2:#38bdf8;   /* cyan */
+      --danger:#fb7185;  /* pink */
+    }
+  
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--txt);
+      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 18% 10%, rgba(56,189,248,.22), transparent 60%),
+        radial-gradient(800px 500px at 82% 20%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 700px at 55% 90%, rgba(251,113,133,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex;
+      justify-content:center;
+    }
+  
+    main{max-width:980px;width:100%;padding:56px 18px}
+  
+    /* Header */
+    h1{
+      margin:0 0 8px;
+      font-size:44px;
+      letter-spacing:.6px;
+      color:white;
+      text-shadow:
+        0 0 12px rgba(34,197,94,.28),
+        0 0 22px rgba(56,189,248,.16);
+    }
+  
+    /* kleiner "glitch" Effekt (dezent) */
+    h1 span{
+      position:relative;
+      display:inline-block;
+    }
+    h1 span::before, h1 span::after{
+      content:attr(data-text);
+      position:absolute;
+      left:0; top:0;
+      opacity:.35;
+      pointer-events:none;
+    }
+    h1 span::before{transform:translate(1.5px,0); color:var(--neon2)}
+    h1 span::after{transform:translate(-1.5px,0); color:var(--danger)}
+  
+    .sub{margin:0 0 26px;color:var(--muted)}
+  
+    /* Cards */
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:22px;
+      margin:16px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:0;
+      border-radius:18px;
+      padding:1px;
+      background:linear-gradient(120deg, rgba(34,197,94,.55), rgba(56,189,248,.35), rgba(251,113,133,.25));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      opacity:.55;
+    }
+  
+    h2{
+      margin:0 0 10px;
+      color:var(--neon);
+      letter-spacing:.3px;
+    }
+  
+    b{color:#fff}
+  
+    ul{margin:10px 0 0 20px}
+    li{margin:6px 0}
+  
+    a{
+      color:var(--neon2);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(56,189,248,.5);
+    }
+    a:hover{color:var(--neon); border-bottom-color:rgba(34,197,94,.7)}
+  
+    footer{
+      margin-top:22px;
+      color:rgba(229,231,235,.55);
+      font-size:13px
+    }
   </style>
+
 </head>
 <body>
 <main>
-  <h1>Bluff – Das Partyspiel</h1>
+  <h1><span data-text="Bluff">Bluff</span> – Das Partyspiel</h1>
+
   <p class="sub">Täusche deine Freunde. Errate die Wahrheit. Lache garantiert.</p>
 
   <div class="card">
@@ -39,7 +136,7 @@
   <div class="card">
     <h2>Support</h2>
     <p>Bei Fragen oder Problemen mit „Bluff“ erreichst du uns unter:</p>
-    <p><b>fhohenrainer@gmail.com:</b> <a href="mailto:fhohenrainer@gmail.com">fhohenrainer@gmail.com</a></p>
+    <p><b>E-mail:</b> <a href="mailto:fhohenrainer@gmail.com">fhohenrainer@gmail.com</a></p>
   </div>
 
   <footer>Stand: 2026-02-11</footer>
